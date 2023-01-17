@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, NavLink } from 'react-router-dom';
+import { v4 as uuidv4 } from "uuid";
 
 export default function Header(props: any) {
 
@@ -22,6 +23,7 @@ export default function Header(props: any) {
             {links?.map( (x: any) => 
                 <NavLink
                     to={x.link}
+                    key={uuidv4()}
                     className={ ({isActive}) => {
                         return (
                             "px-2 p-2 no-underline "+
