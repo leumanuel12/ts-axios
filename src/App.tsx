@@ -5,7 +5,8 @@ import CryptoSummary from './components/CryptoSummary';
 import { Crypto } from './Types';
 
 export default function App() {
-  const [cryptos, setCryptos] = useState<Crypto[] | null>();
+  const [cryptos, setCryptos] = useState<Crypto[] | null>(null);
+  const [selected, setSelected] = useState<Crypto | null>();
 
   useEffect(() => {
     const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
@@ -17,10 +18,23 @@ export default function App() {
 
   return (
     <div className="table-auto mt-5 mx-5">
-      <h2>Crypto Currencies</h2>
-      {cryptos ? cryptos.map((crypto) => {
-        return <CryptoSummary crypto={crypto} />
-      }) : null}
+      <h2>Crypto Currencies</h2><br/>
+
+      <select 
+        className='border border-gray-400 rounded-md px-2'
+        onChange={(e) => {
+          //console.log(e.target.value)
+          const c = cryptos?.find( (x) => x.id === e.target.value );
+          setSelected(c);
+          //console.log(c);
+        }}
+        >
+        {cryptos ? cryptos.map((crypto) => {
+          return <option key={crypto.id} value={crypto.id}>{crypto.name}</option>
+        }) : null}
+      </select>
+
+      {selected ? <CryptoSummary crypto={selected} /> : null}
 
     </div>
   );
