@@ -1,17 +1,8 @@
 import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
-export type Crypto = {
-  "id": string,
-  "symbol": string,
-  "name": string,
-  "current_price": number,
-  "high_24h": number,
-  "low_24h": number,
-  "ath": number,
-  "atl": number
-}
+import CryptoSummary from './components/CryptoSummary';
+import { Crypto } from './Types';
 
 export default function App() {
   const [cryptos, setCryptos] = useState<Crypto[] | null>();
@@ -26,10 +17,17 @@ export default function App() {
 
   return (
     <div className="table-auto mt-5 mx-5">
-
       <h2>Crypto Currencies</h2>
+      {cryptos ? cryptos.map((crypto) => {
+        return <CryptoSummary crypto={crypto} />
+      }) : null}
 
-      <table className="mt-4">
+    </div>
+  );
+}
+
+/*
+<table className="mt-4">
         <thead>
           <tr>
             <td className='border border-gray-400 px-2'>ID</td>
@@ -60,6 +58,4 @@ export default function App() {
       } ) : null}
       </tbody>
       </table>
-    </div>
-  );
-}
+*/
