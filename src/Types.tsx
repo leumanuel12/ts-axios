@@ -6,5 +6,6 @@ export type Crypto = {
     "high_24h": number,
     "low_24h": number,
     "ath": number,
-    "atl": number
+    "atl": number,
+    "owned": number,
   }
