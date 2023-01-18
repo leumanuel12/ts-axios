@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LineChart from './pages/LineChart';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
-import PieChart from './pages/PieChart';
+import Calculator from './pages/Calculator';
 
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
       <Header>
         <Routes>
           <Route path="/" element={<LineChart />} />
-          <Route path="/piechart" element={<PieChart />} />
+          <Route path="/calculator" element={<Calculator />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Header>

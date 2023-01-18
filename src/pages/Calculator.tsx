@@ -15,7 +15,7 @@ ChartJS.register(
   Legend
 );
 
-export default function PieChart() {
+export default function Calculator() {
   const [cryptos, setCryptos] = useState<Crypto[] | null>(null);
   const [selected, setSelected] = useState<Crypto[]>([]);
 
@@ -47,7 +47,7 @@ export default function PieChart() {
 
   return (
     <div className="table-auto mt-5 mx-5">
-      <h2>Crypto Calculator</h2><br />
+      <h3>Crypto Calculator</h3><br />
 
       <select
         className='border border-gray-400 rounded-md px-2 mb-3'

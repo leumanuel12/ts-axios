@@ -10,7 +10,7 @@ export default function Header(props: any) {
 
     const links = [
         { "link":"/","name":"Line Chart" },
-        { "link":"/piechart","name":"Pie Chart" },
+        { "link":"/calculator","name":"Crypto Calculator" },
     ]
 
   return (<>
