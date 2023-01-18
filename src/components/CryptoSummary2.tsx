@@ -15,7 +15,7 @@ export default function CryptoSummary2({ crypto, updateOwned }: AppProps): JSX.E
 
     return (<>
         <div key={crypto.id} className="mx-3 py-3 flex items-center">
-            <span className="px-2 w-1/4">{crypto.name} : <b>${crypto.current_price}</b> <span className="float-right pr-3">x</span></span>
+            <span className="px-2 w-1/2">{crypto.name} : <b>${crypto.current_price}</b> <span className="float-right pr-3">x</span></span>
             <input
                 type="number"
                 style={{ width: 100 }}
